@@ -1,0 +1,343 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+
+body                   { font: 12px Georgia, Serif; background: #fff; color: #000; }
+a, a img               { border: 0; text-decoration: none; }
+
+h1                     { font: bold 60px Helvetica, Sans-Serif; letter-spacing: -2px; margin: 20px 0; text-align: center; }
+h2                     { font: bold 30px Helvetica, Sans-Serif; letter-spacing: -1px; margin: 0 0 10px 0; color: #002266; }
+h2.title               { text-align: center; }
+h3                     { font: bold 20px Georgia, Serif; margin: 0 0 10px 0; color: #003388; }
+h5, .header            { font: bold 15px Georgia, Serif; text-align: center; }
+pre, code              { font: 13px/1.8 Monaco, MonoSpace; margin: 0 0 15px 0; padding: 5px; background: #f5f5f5; block: inline; width: 100%; overflow-x: auto; }
+blockquote             { margin-left: 30px; }
+
+ul                     { margin: 0; padding-left: 35px; }
+ul li                  { font: 15px Georgia, Serif; margin: 0 0 8px 0; }
+
+.thumbNav {
+	display: none;
+}
+
+#slider1 .vue-list {
+	width: 100%;
+	-webkit-box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.4);
+	box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.4);
+}
+
+#main {
+	background-image: url(../media/vuepluginbg.png);
+	background-repeat: repeat;
+}
+
+.title-main {
+	font-family: 'Lobster', cursive;
+	font-size: 38px;
+	color: rgba(255,255,255, 0.95);
+	text-decoration: underline;
+}
+
+
+#wrapper.paper {
+	margin-left: 7rem;
+	width: 80%;
+	position: relative;
+	background: #fff url(../images/bkgd-paper.jpg);
+	border: 1px solid #cacfc5;
+	height: 300px;
+	padding: 40px;
+	margin: 0 auto;
+	-moz-border-radius:0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+.paper:before, .paper:after {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	left: 23px;
+	bottom: 13px;
+	width: 70%;
+	max-width: 300px;
+	height: 55%;
+	-webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+	-webkit-transform: skew(-15deg) rotate(-6deg);
+	-moz-transform: skew(-15deg) rotate(-6deg);
+	transform: skew(-15deg) rotate(-6deg);
+}
+.paper:after {
+	left: auto;
+	right: 23px;
+	-webkit-transform: skew(15deg) rotate(6deg);
+	-moz-transform: skew(15deg) rotate(6deg);
+	transform: skew(15deg) rotate(6deg);
+}
+
+#slider1 {
+        width: 660px;
+        height: 400px;
+        list-style: none;
+        /* Prevent FOUC (see FAQ page) and keep things readable if javascript is disabled */
+        overflow-y: auto;
+        overflow-x: hidden;
+}
+
+
+/* Overall Wrapper */
+.anythingSlider-default {
+        margin: 0 auto;
+        /* 45px right & left padding for the arrows, 28px @ bottom for navigation */
+        padding: 0 45px 28px 45px;
+}
+/* slider window - top & bottom borders, default state */
+.anythingSlider-default .anythingWindow {
+        border-top: 3px solid #777;
+        border-bottom: 3px solid #777;
+}
+/* Navigation buttons + start/stop button, default state */
+.anythingSlider-default .anythingControls a {
+        /* top shadow */
+        background: #777 url(../images/default.png) center -288px repeat-x;
+        color: #000;
+        border-radius: 0 0 5px 5px;
+        -moz-border-radius: 0 0 5px 5px;
+        -webkit-border-radius: 0 0 5px 5px;
+}
+/* Make sure navigation text is visible */
+.anythingSlider-default .anythingControls a span {
+        visibility: visible;
+}
+/* Navigation current button, default state */
+.anythingSlider-default .anythingControls a.cur {
+        background: #888;
+        color: #000;
+}
+
+/* start-stop button, stopped, default state */
+.anythingSlider-default .anythingControls a.start-stop {
+        background-color: #040;
+        color: #ddd;
+}
+/* start-stop button, playing, default state */
+.anythingSlider-default .anythingControls a.start-stop.playing {
+        background-color: #800;
+}
+
+/* start-stop button, default hovered text color (when visible) */
+/* hide nav/start-stop background image shadow on hover - makes the button appear to come forward */
+.anythingSlider-default .anythingControls a.start-stop:hover,
+.anythingSlider-default .anythingControls a.start-stop.hover,
+.anythingSlider-default .anythingControls a.start-stop .anythingControls ul a:hover {
+        background-image: none;
+        color: #ddd;
+}
+
+
+/* slider window - top & bottom borders, active state */
+.anythingSlider-default.activeSlider .anythingWindow {
+        border-color: #7C9127;
+}
+/* Navigation buttons, active state */
+.anythingSlider-default.activeSlider .anythingControls a {
+        /* background image = top shadow */
+        background-color: #7C9127;
+}
+/* Navigation current & hovered button, active state */
+.anythingSlider-default.activeSlider .anythingControls a.cur,
+.anythingSlider-default.activeSlider .anythingControls a:hover {
+        /* background image removed */
+        background: #7C9127;
+}
+
+/* start-stop button, stopped, active state */
+.anythingSlider-default.activeSlider .anythingControls a.start-stop {
+        background-color: #080;
+        color: #fff;
+}
+/* start-stop button, playing, active state */
+.anythingSlider-default.activeSlider .anythingControls a.start-stop.playing {
+        background-color: #d00;
+        color: #fff;
+}
+/* start-stop button, active slider hovered text color (when visible) */
+.anythingSlider-default.activeSlider .start-stop:hover,
+.anythingSlider-default.activeSlider .start-stop.hover {
+        color: #fff;
+}
+
+
+/* Navigation Arrows */
+.anythingSlider-default .arrow {
+        top: 50%;
+        position: absolute;
+        display: block;
+}
+
+.anythingSlider-default .arrow a {
+        display: block;
+        width: 45px;
+        height: 140px;
+        margin: -70px 0 0 0; /* half height of image */
+        text-align: center;
+        outline: 0;
+        background: url(../images/default.png) no-repeat;
+}
+
+/* back arrow */
+.anythingSlider-default .back { left: 0; }
+.anythingSlider-default .back a { background-position: left top; }
+.anythingSlider-default .back a:hover,
+.anythingSlider-default .back a.hover { background-position: left -140px; }
+/* forward arrow */
+.anythingSlider-default .forward { right: 0; }
+.anythingSlider-default .forward a { background-position: right top; }
+.anythingSlider-default .forward a:hover,
+.anythingSlider-default .forward a.hover { background-position: right -140px; }
+
+/* Navigation Links */
+.anythingSlider-default .anythingControls { outline: 0; display: none; }
+.anythingSlider-default .anythingControls ul { margin: 0; padding: 0; float: left; }
+.anythingSlider-default .anythingControls ul li { display: inline; }
+.anythingSlider-default .anythingControls ul a {
+        font: 11px/18px Georgia, Serif;
+        display: inline-block;
+        text-decoration: none;
+        padding: 2px 8px;
+        height: 18px;
+        margin: 0 5px 0 0;
+        text-align: center;
+        outline: 0;
+}
+
+/* navigationSize window */
+.anythingSlider-default .anythingControls .anythingNavWindow {
+        overflow: hidden;
+        float: left;
+}
+
+/* Autoplay Start/Stop button */
+.anythingSlider-default .anythingControls .start-stop {
+        padding: 2px 5px;
+        width: 40px;
+        text-align: center;
+        text-decoration: none;
+        float: right;
+        z-index: 100;
+        outline: 0;
+}
+
+
+/* Navigation Arrows */
+.as-oldie .anythingSlider-default .arrow {
+        top: 30%;
+}
+.as-oldie .anythingSlider-default .arrow a {
+        margin: 0;
+}
+
+/* margin between nav buttons just looks better */
+.as-oldie .anythingSlider-default .anythingControls li {
+        margin-left: 3px;
+}
+
+/* When using the navigationSize option, the side margins need to be zero
+        None of the navigation panels look good in IE7 now =( */
+.as-oldie .anythingSlider-default .anythingControls a {
+        margin: 0;
+}
+.as-oldie .anythingSlider-default .anythingNavWindow {
+        margin: 0 2px;
+}
+.as-oldie .anythingSlider-default .anythingNavWindow li {
+        padding: 3px 0 0 0;
+}
+
+
+/* Overall Wrapper */
+.anythingSlider {
+        display: block;
+        overflow: visible !important;
+        position: relative;
+}
+/* anythingSlider viewport window */
+.anythingSlider .anythingWindow {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+}
+/* anythingSlider base (original element) */
+.anythingSlider .anythingBase {
+        background: transparent;
+        list-style: none;
+        position: absolute;
+        overflow: visible !important;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+}
+
+/* Navigation arrow text; indent moved to span inside "a", for IE7;
+  apparently, a negative text-indent on an "a" link moves the link as well as the text */
+.anythingSlider .arrow span {
+        display: block;
+        visibility: hidden;
+}
+/* disabled arrows, hide or reduce opacity: opacity: .5; filter: alpha(opacity=50); */
+.anythingSlider .arrow.disabled {
+        display: none;
+}
+/* all panels inside the slider; horizontal mode */
+.anythingSlider .panel {
+        background: transparent;
+        display: block;
+        overflow: hidden;
+        float: left;
+        padding: 0;
+        margin: 0;
+}
+/* vertical mode */
+.anythingSlider .vertical .panel {
+        float: none;
+}
+/* fade mode */
+.anythingSlider .fade .panel {
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+}
+/* fade mode active page - visible & on top */
+.anythingSlider .fade .activePage {
+        z-index: 1;
+}
+
+
+/* slider autoplay right-to-left, reverse order of nav links to look better */
+.anythingSlider.rtl .anythingWindow {
+        direction: ltr;
+        unicode-bidi: bidi-override;
+}
+.anythingSlider.rtl .anythingControls ul { float: left; } /* move nav link group to left */
+.anythingSlider.rtl .anythingControls ul a { float: right; } /* reverse order of nav links */
+.anythingSlider.rtl .start-stop { /* float: right; */ } /* move start/stop button - in case you want to switch sides */
+
+/* probably not necessary, but added just in case */
+.anythingSlider,
+.anythingSlider .anythingWindow,
+.anythingSlider .anythingControls ul a,
+.anythingSlider .arrow a,
+.anythingSlider .start-stop {
+        transition-duration: 0s;
+        -o-transition-duration: 0s;
+        -moz-transition-duration: 0s;
+        -webkit-transition-duration: 0s;
+}

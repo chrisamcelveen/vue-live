@@ -10,12 +10,206 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="js/jquery.anythingslider.js"></script>
+    <script src="js/swfobject.js"></script>
+    <script src="js/jquery.anythingslider.fx.js"></script>
+    <script src="js/jquery.anythingslider.video.js"></script>
+    <script src="js/jquery.colorbox.js"></script>
+    <script src="js/video.js"></script>
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/colorbox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/video-js.css" rel="stylesheet">
+    <script type='text/javascript'>
+    $(window).load(function(){
+      $('#slider1').anythingSlider({
+          mode: "f",
+          resumeOnVisible: false,
+          resumeOnVideoEnd: true,
+          startStop: true,
+          stopAtEnd: true,
+          autoPlay: false,
+          Wmode: "transparent",
+          buildNavigation: true,
+          resizeContents: true,
+          startText: "Go",                    
+          stopText: "Stop",
+          animationTime: 1000,
+          onShowStop : function(e, slider){
+            setTimeout(function(){
+              
+              if (slider.currentPage === slider.pages) { slider.gotoPage(1); }
+            }, slider.options.delay);
+          },
+      })
+    });
+    </script>
+
+    <script>
+      videojs.options.flash.swf = "video-js.swf";
+    </script>
+
+    <script>
+      $(window).load(function(){
+        $('#slider1').data('AnythingSlider').makeActive();
+      });
+    </script>
+
+    <script type="text/javascript">
+            // Global variable to track current file name.
+            var currentFile = "";
+            function playAudio() {
+                // Check for audio element support.
+                if (window.HTMLAudioElement) {
+                    try {
+                        var oAudio = document.getElementById('myaudio');
+                        var btn = document.getElementById('play'); 
+                        var audioURL = document.getElementById('audiofile'); 
+
+                        //Skip loading if current file hasn't changed.
+                        if (audioURL.value !== currentFile) {
+                            oAudio.src = audioURL.value;
+                            currentFile = audioURL.value;                       
+                        }
+
+                        // Tests the paused attribute and set state. 
+                        if (oAudio.paused) {
+                            oAudio.play();
+                            btn.textContent = "Pause";
+                        }
+                        else {
+                            oAudio.pause();
+                            btn.textContent = "Play";
+                        }
+                    }
+                    catch (e) {
+                        
+                         if(window.console && console.error("Error:" + e));
+                    }
+                }
+            }
+
+    </script>
+
+<!--
+
+    <script>
+    $.fn.volumizer=function(o){
+      return this.each(function(){
+            var lastSeconds=-1,
+              media=this
+            $(this).on('timeupdate',function(){
+              var seconds=Math.floor(this.currentTime)
+              if (seconds>lastSeconds && o[seconds]){
+                var rule=o[seconds],
+                  aniSeconds=rule[0],
+                  volume=this.volume,
+                  finalVolume=rule[1]*volume,
+                  stepVolume=(finalVolume-volume)/aniSeconds
+            //    console.log(rule,volume,finalVolume,stepVolume)
+                for(var second=0;second<aniSeconds+1;second++)
+                  (function(tVolume){
+                    setTimeout(function(){
+                      media.volume=tVolume
+            //          console.log(tVolume)
+                    },second*1000)
+                  })(volume+(stepVolume*second))
+              }
+              lastSeconds=seconds
+            })
+          })
+      }
+    </script>
+
+    <script>
+      $('audio').volumizer({15:[25,.0001]})
+    </script>
+
+-->
+
+    <script>
+      var myPlayer = {
+      "vid1" : _V_("vid1"),
+      "vid2" : _V_("vid2")
+      };
+
+      var playvid = function(slider) {
+      var vid = slider.$currentPage.find('div.video-js');
+        if (vid.length) {
+          // autoplay
+          vid[0].play();
+         }
+      };
+
+
+      $('#slider1').anythingSlider({
+          // pause all videos when changing slides
+          onSlideInit: function (e, slider) {
+              for (var vid in myPlayer) {
+                  myPlayer[vid].pause();
+              }
+          },
+          // Only play a paused video when a slide comes into view
+          onSlideComplete: function (slider) {
+              // the video gets wrapped in a div with the same ID
+              var video = slider.$currentPage.find('div.video-js'),
+                  vid = video.attr('id');
+              // find video-js class name & check if paused
+              if (video.length && myPlayer[vid] && myPlayer[vid].paused()) {
+                  myPlayer[vid].play();
+              }
+          },
+          // return true if video is playing or false if not
+          isVideoPlaying: function (slider) {
+              var video = slider.$currentPage.find('div.video-js'),
+                  vid = video.attr('id');
+              if (video.length && myPlayer[vid] && !myPlayer[vid].paused()) {
+                  return true;
+              }
+              return false;
+          }
+      });
+    </script>
+
+    <script type="text/javascript">
+    interval = setInterval(videoLoaded, 100);
+
+    function videoEnd(){
+            $('#slider1').slideToggle("slow");
+            setTimeout("$('#slider1').remove()", 700);
+        }
+
+    function videoLoaded(){
+        if(!_V_.players.video){
+            return false;
+        }
+
+        _V_.players.video.play();
+        _V_.players.video.addEvent("ended", videoEnd);
+        clearInterval(interval);
+    }
+
+</script>
+
+    <script>
+        $('#slider1').anythingSlider({
+          stopAtEnd  : true,
+          onShowStop : function(e, slider){
+            setTimeout(function(){
+              // only go to the first page if the last page is visible
+              if (slider.currentPage === slider.pages) { slider.gotoPage(1); }
+            }, slider.options.delay);
+          }
+        });
+    </script>
+
 </head>
-  <body ng-app="vueAngularApp">
+  <body id="main" ng-app="vueAngularApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

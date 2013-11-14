@@ -1,30 +1,58 @@
-<div class="header">
-	<ul class="nav nav-pills pull-right">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
-	</ul>
-	<h3 class="text-muted">vue angular</h3>
-</div>
+<h1 class="text-center title-main">Your WeVue</h1>
 
-<div class="jumbotron">
-	<h1>'Allo, 'Allo!</h1>
-	<p class="lead">Always a pleasure scaffolding your apps.</p>
-	<p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-</div>
+  <div class="paper" id="wrapper">
 
-<div class="row marketing">
-	<h4>HTML5 Boilerplate</h4>
-	<p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+    <audio id="myaudio" autobuffer>
+        <input type="text" id="audiofile" size="0" value="media/1-08 Kill Devil Falls.mp3" />
+    </audio>
 
-	<h4>Angular</h4>
-	<p>AngularJS is a toolset for building the framework most suited to your application development.</p>
+    <ul class="vue-list" id="slider1">
 
-	<h4>Karma</h4>
-	<p>Spectacular Test Runner for JavaScript.</p>
-</div>
-</div>
+      <li id='slide5' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/001/993/954/822/medium/1755259484-file-A4CF7437-1E5F-4AA3-948D-376B06F484A6.jpg?1380290667"></li>
 
-<div class="footer">
-	<p>♥ from the Yeoman team</p>
-</div>
+      <li id='slide6' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/000/107/761/164/medium/1755259484-file-04016DDC-E26D-4571-825F-ECB72A1B7C18.jpg?1380290739"></li>
+
+      <li id='slide7' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/000/398/395/469/medium/1755259484-file-BE12CE86-5CB2-45D3-BDE6-E3DAF6B49D70.jpg?1380290781"></li>
+
+      <li id='slide8' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/000/874/133/854/medium/1755259484-file-92BD9642-F11F-4A02-A007-82184E89B4A6.jpg?1380290826"></li>
+
+      <li id='slide2' class="vue-pane">
+        <video class="video-js" id="vid1" width="640" height="264" autoplay preload muted>
+          <source src="media/vid1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+          <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
+          <object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="264" type="application/x-shockwave-flash" 
+            data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+            <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+            <param name="allowfullscreen" value="true" />
+            <param name="flashvars" 
+              value='config={"playlist":[{"url": "media/vid1.mp4","autoPlay":true,"autoBuffering":true}]}' />
+          </object>
+        </video>
+
+      </li>
+
+      <li id='slide9' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/000/615/412/312/medium/1755259484-file-7110F40A-8645-463E-94DA-C9CD6270E376.jpg?1380290840"></li>
+
+      <li id='slide2' class="vue-pane">
+        <video class="video-js" id="vid2" width="640" height="264" autoplay preload muted>
+          <source src="media/vid2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+          <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
+          <object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="264" type="application/x-shockwave-flash" 
+            data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+            <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+            <param name="allowfullscreen" value="true" />
+            <param name="flashvars" 
+              value='config={"playlist":[{"url": "media/vid2.mp4","autoPlay":true,"autoBuffering":true}]}' />
+          </object>
+        </video>
+      </li>
+
+      <li id='slide10' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/001/170/756/896/medium/1755259484-file-416CA6E3-2C03-4505-96BF-AE74A6A7C6CE.jpg?1380290869"></li>
+
+      <li id='slide11' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/001/809/213/055/medium/1755259484-file-55F659E4-A7B6-4F0A-869C-9EA6FCFAC7D7.jpg?1380290931"></li>
+
+      <li id='slide12' class='vue-pane'><img src="http://s3.amazonaws.com/wevue-production/media/attachments/001/512/065/523/medium/1755259484-file-5060C56E-EEE7-4D1D-A47D-582330E6F540.jpg?1380290911"></li>
+
+    </ul>
+
+  </div>
